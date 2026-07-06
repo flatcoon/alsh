@@ -1,0 +1,160 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family);
+  background: #e8e8e8;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100%;
+}
+
+#app-shell {
+  position: relative;
+  width: 100%;
+  max-width: 402px;
+  min-height: 100dvh;
+  background: var(--bg-primary);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 40px rgba(0,0,0,0.15);
+  padding-top: env(safe-area-inset-top);
+  transform: translateZ(0);
+}
+
+#screen-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Экраны, которые используют bottom nav, должны оставлять место.
+   Padding вешаем на .screen, а не на #screen-container: .screen абсолютно
+   спозиционирован (inset:0) и игнорирует padding родителя. */
+#screen-container.has-nav .screen {
+  padding-bottom: calc(70px + env(safe-area-inset-bottom));
+}
+
+/* === АНИМАЦИИ ПЕРЕХОДОВ === */
+.screen {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.screen-enter,
+.screen-enter-back {
+  animation: fadeIn 200ms ease-out forwards;
+}
+
+.screen-exit,
+.screen-exit-back {
+  animation: fadeOut 150ms ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* === PHONE INPUT CURSOR === */
+@keyframes phone-caret-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.phone-cursor {
+  display: inline-block;
+  width: 0;
+  height: 22px;
+  position: relative;
+  overflow: visible;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.phone-cursor::after {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 22px;
+  background: var(--icon-primary);
+  border-radius: 10px;
+  opacity: 0;
+}
+.phone-cursor.shown::after {
+  opacity: 1;
+  animation: phone-caret-blink 1s step-end infinite;
+}
+
+/* === SCROLLBAR HIDE === */
+.screen::-webkit-scrollbar { display: none; }
+.screen { -ms-overflow-style: none; scrollbar-width: none; }
+.home-grades-row::-webkit-scrollbar,
+.home-news-row::-webkit-scrollbar { display: none; }
+
+/* === HOME SCREEN INNER SCROLL === */
+.home-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.home-scroll::-webkit-scrollbar { display: none; }
+
+/* === UTILITY === */
+.flex-col  { display: flex; flex-direction: column; }
+.flex-row  { display: flex; flex-direction: row; align-items: center; }
+.gap-8     { gap: var(--sp-8); }
+.gap-12    { gap: var(--sp-12); }
+.gap-16    { gap: var(--sp-16); }
+.flex-1    { flex: 1; }
+.w-full    { width: 100%; }
+.text-center { text-align: center; }
+
+/* Типографические утилиты */
+.t-display { font-size: var(--font-display-size); font-weight: var(--font-display-weight); line-height: var(--font-display-lh); }
+.t-h1      { font-size: var(--font-h1-size); font-weight: var(--font-h1-weight); line-height: var(--font-h1-lh); }
+.t-h2      { font-size: var(--font-h2-size); font-weight: var(--font-h2-weight); line-height: var(--font-h2-lh); }
+.t-h3      { font-size: var(--font-h3-size); font-weight: var(--font-h3-weight); line-height: var(--font-h3-lh); }
+.t-h3b     { font-size: var(--font-h3-size); font-weight: var(--font-h3bold-weight); line-height: var(--font-h3-lh); }
+.t-h4      { font-size: var(--font-h4-size); font-weight: var(--font-h4-weight); line-height: var(--font-h4-lh); }
+.t-bodyl   { font-size: var(--font-bodyl-size); font-weight: var(--font-bodyl-weight); line-height: var(--font-bodyl-lh); }
+.t-bodym   { font-size: var(--font-bodym-size); font-weight: var(--font-bodym-weight); line-height: var(--font-bodym-lh); }
+.t-bodys   { font-size: var(--font-bodys-size); font-weight: var(--font-bodys-weight); line-height: var(--font-bodys-lh); }
+.t-caption { font-size: var(--font-caption-size); font-weight: var(--font-caption-weight); line-height: var(--font-caption-lh); }
+.t-mini    { font-size: var(--font-mini-size); line-height: var(--font-mini-lh); }
+
+.c-primary   { color: var(--text-primary); }
+.c-secondary { color: var(--text-secondary); }
+.c-accent    { color: var(--text-accent); }
+.c-inverse   { color: var(--text-inverse); }
+.c-error     { color: var(--icon-error); }

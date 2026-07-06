@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* === ФОНЫ === */
+  --bg-primary:            #fcfcfc;
+  --bg-secondary:          #f4f4f5;
+  --surface-primary:       #ffffff;
+  --surface-secondary:     #f4f4f5;
+
+  /* === ТЕКСТ === */
+  --text-primary:          #1b1b1b;
+  --text-secondary:        #8a8a8a;
+  --text-accent:           #4279bb;
+  --text-inverse:          #ffffff;
+  --text-disabled:         #c9c9c9;
+
+  /* === ИКОНКИ === */
+  --icon-primary:          #1b1b1b;
+  --icon-accent:           #4279bb;
+  --icon-error:            #e93334;
+
+  /* === КНОПКИ === */
+  --btn-primary-bg:        #333333;
+  --btn-primary-disabled:  #f4f4f5;
+
+  /* === ГРАНИЦЫ === */
+  --border-secondary:      #e3e3e3;
+  --border-success:        #b2ff9b;
+  --border-warning:        #fae498;
+  --border-error-2:        #fdd7d8;
+
+  /* === РАДИУСЫ === */
+  --radius-s:              12px;
+  --radius-m:              16px;
+  --radius-full:           999px;
+
+  /* === ОТСТУПЫ === */
+  --sp-2:    2px;
+  --sp-4:    4px;
+  --sp-6:    6px;
+  --sp-8:    8px;
+  --sp-12:   12px;
+  --sp-14:   14px;
+  --sp-16:   16px;
+  --sp-24:   24px;
+  --sp-28:   28px;
+  --sp-32:   32px;
+
+  /* === ТИПОГРАФИКА === */
+  --font-family: 'Inter', sans-serif;
+
+  --font-display-size:       32px;
+  --font-display-weight:     600;
+  --font-display-lh:         40px;
+
+  --font-h1-size:            28px;
+  --font-h1-weight:          600;
+  --font-h1-lh:              36px;
+
+  --font-h2-size:            24px;
+  --font-h2-weight:          600;
+  --font-h2-lh:              32px;
+
+  --font-h3-size:            20px;
+  --font-h3-weight:          400;
+  --font-h3bold-weight:      600;
+  --font-h3-lh:              28px;
+
+  --font-h4-size:            16px;
+  --font-h4-weight:          600;
+  --font-h4-lh:              24px;
+
+  --font-bodyl-size:         18px;
+  --font-bodyl-weight:       400;
+  --font-bodyl-lh:           24px;
+
+  --font-bodym-size:         16px;
+  --font-bodym-weight:       400;
+  --font-bodym-lh:           24px;
+
+  --font-btn-size:           16px;
+  --font-btn-weight:         500;
+  --font-btn-lh:             24px;
+
+  --font-bodys-size:         14px;
+  --font-bodys-weight:       400;
+  --font-bodys-lh:           20px;
+
+  --font-caption-size:       12px;
+  --font-caption-weight:     400;
+  --font-caption-m-weight:   500;
+  --font-caption-sb-weight:  600;
+  --font-caption-lh:         16px;
+
+  --font-mini-size:          10px;
+  --font-mini-lh:            12px;
+
+  /* === ОЦЕНКИ (цвета из Figma) === */
+  --grade-success: #50ac35;
+  --grade-warning: #e6cf2a;
+  --grade-error:   #e93334;
+
+  --grade-5-bg:   #e8f6e3;
+  --grade-5-text: #50ac35;
+  --grade-4-bg:   #e3eeff;
+  --grade-4-text: #4279bb;
+  --grade-3-bg:   #fef9d9;
+  --grade-3-text: #c4a900;
+  --grade-2-bg:   #fce8e8;
+  --grade-2-text: #e93334;
+
+  /* === ДОПОЛНИТЕЛЬНЫЕ ПОВЕРХНОСТИ === */
+  --surface-inverse:   #272727;  /* тёмная поверхность — активный день в расписании */
+  --surface-accent:    #99bdff;  /* голубой акцент */
+  --surface-success:   #67d647;  /* зелёный «Идет сейчас» */
+  --surface-warning:   #fae498;  /* жёлтый тег (Диктант) */
+  --surface-error-bg:  #faacae;  /* красный тег (Контрольная) */
+  --text-tertiary:     #bdbdbd;  /* третичный текст на тёмных поверхностях */
+  --radius-l:          24px;     /* radius/l — большой радиус карточек */
+}
+
+/* =====================================================
+   ТЁМНАЯ ТЕМА (значения из Figma, design system Мажордом v2.0)
+   ===================================================== */
+:root[data-theme="dark"] {
+  --bg-primary:            #1b1b1b;
+  --bg-secondary:          #1b1b1b;
+  --surface-primary:       #272727;
+  --surface-secondary:     #333333;
+
+  --text-primary:          #ffffff;
+  --text-secondary:        #b0b0b0;
+  --text-accent:           #6e9bd0;
+  --text-disabled:         #979797;
+
+  --icon-primary:          #ffffff;
+  --icon-accent:           #6e9bd0;
+  --icon-error:            #f05a5c;
+
+  --btn-primary-disabled:  #333333;
+
+  --border-secondary:      #3f3f3f;
+
+  --grade-error:           #f05a5c;
+}
