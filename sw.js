@@ -1,4 +1,4 @@
-const CACHE_NAME = 'school-app-v18';
+const CACHE_NAME = 'school-app-v19';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -49,6 +49,9 @@ const STATIC_ASSETS = [
   './images/chats/avatar-teacher2.svg',
   './images/chats/photo-demo1.svg',
   './images/chats/photo-demo2.svg',
+  './images/news/physics-lab.png',
+  './images/news/gym.png',
+  './images/news/flowers.png',
 ];
 
 self.addEventListener('install', (e) => {
